@@ -1,5 +1,8 @@
 .djxzHeader_page {
     header {
+        position: relative;
+        display: flex;
+        align-items: center;
         height: 35px;
         background: rgb(40, 44, 52);
 
@@ -9,14 +12,14 @@
         }
 
         .l {
-            float: left;
+            
         }
 
         .r {
-            float: right;
+            position: absolute;
+            right: 0;
             display: flex;
             align-items: center;
-            height: 100%;
 
             ul li {
                 float: left;
@@ -26,8 +29,24 @@
     }
 
     .c {
+        display: flex;
         height: 150px;
         background: #fff;
+
+        .logoTitle {
+            display: flex;
+            align-items: center;
+            height: 100px;
+            
+            img { 
+                height: 100%;
+            }
+    
+            h3 {
+                font-size: 60px;
+            }
+        }
+
     }
 
     background: pink;

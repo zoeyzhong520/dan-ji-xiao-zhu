@@ -15,7 +15,12 @@ const DJXZHeader = () => {
                 </div>
             </header>
             {/* logo、搜索框 */}
-            <div className="c">123</div>
+            <div className="c">
+                <div className='logoTitle'>
+                    <img src={require('./logo400.png')} alt="" />
+                    <h3>DJXZ</h3>
+                </div>
+            </div>
         </div>
     )
 }
