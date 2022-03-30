@@ -1,53 +1,129 @@
 .djxzHeader_page {
+    position: relative;
+
     header {
         position: relative;
         display: flex;
         align-items: center;
+        padding: 0 120px;
         height: 35px;
         background: rgb(40, 44, 52);
 
         a {
+            font-size: 14px;
             color: #fff;
             line-height: 35px;
         }
 
-        .l {
-            
-        }
-
         .r {
             position: absolute;
-            right: 0;
+            right: 120px;
             display: flex;
             align-items: center;
 
             ul li {
                 float: left;
-                margin-right: 10px;
+                margin-left: 10px;
             }
         }
     }
 
-    .c {
+    .middle {
         display: flex;
-        height: 150px;
+        padding: 0 120px;
+        height: 130px;
         background: #fff;
 
         .logoTitle {
             display: flex;
             align-items: center;
             height: 100px;
-            
-            img { 
-                height: 100%;
+            cursor: pointer;
+
+            img {
+                width: 100px;
+                height: 100px;
+                background: #ebebeb;
             }
-    
+
             h3 {
                 font-size: 60px;
             }
         }
 
+        .search {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin-left: 138px;
+            width: 570px;
+            height: 100px;
+
+            input {
+                margin-top: 35px;
+                padding: 0 15px;
+                width: 536px;
+                height: 38px;
+                border-radius: 38px;
+                border: 2px solid pink;
+            }
+
+            ul li {
+                float: left;
+                margin-right: 10px;
+
+                a {
+                    font-size: 14px;
+                    color: #333;
+                }
+            }
+        }
     }
 
-    background: pink;
+    .nav {
+        margin-left: 450px;
+        height: 40px;
+
+        ul li {
+            float: left;
+            margin-right: 60px;
+
+            a {
+                font-size: 20px;
+                font-weight: 500;
+                color: #333;
+            }
+
+            a:hover {
+                color: pink;
+            }
+        }
+
+        ul li:first-child a {
+            color: pink;
+        }
+    }
+
+    .gameType {
+        position: absolute;
+        left: 120px;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        width: 224px;
+        height: 40px;
+        cursor: pointer;
+        background: pink;
+
+        span {
+            font-weight: 500;
+            color: #fff;
+        }
+        span::after {
+            content: '图标';
+            position: absolute;
+            right: 20px;
+        }
+    }
 }

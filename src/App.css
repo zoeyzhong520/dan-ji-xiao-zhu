@@ -1,7 +1,13 @@
 .App {
   margin: 0;
   padding: 0;
+  min-width: 1200px;
   text-align: center;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
 }
 
 ul li {
@@ -10,4 +16,9 @@ ul li {
 
 a {
   text-decoration: none;
+}
+
+input {
+  border: none;
+  outline: none;
 }
