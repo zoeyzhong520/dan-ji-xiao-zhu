@@ -1,5 +1,6 @@
 .djxzHeader_page {
     position: relative;
+    border-bottom: 2px solid pink;
 
     header {
         position: relative;
@@ -30,8 +31,7 @@
 
     .middle {
         display: flex;
-        padding: 0 120px;
-        height: 130px;
+        padding: 0 120px 10px; 
         background: #fff;
 
         .logoTitle {
@@ -52,6 +52,7 @@
         }
 
         .search {
+            position: relative;
             display: flex;
             align-items: center;
             flex-direction: column;
@@ -77,6 +78,12 @@
                     color: #333;
                 }
             }
+        }
+        .search::after {
+            content: 'icon';
+            position: absolute;
+            right: 14px;
+            top: 45px;
         }
     }
 
@@ -114,14 +121,14 @@
         width: 224px;
         height: 40px;
         cursor: pointer;
-        background: pink;
+        background: rgb(19, 52, 54);
 
         span {
             font-weight: 500;
             color: #fff;
         }
         span::after {
-            content: '图标';
+            content: 'icon';
             position: absolute;
             right: 20px;
         }

@@ -2,14 +2,14 @@ import './djxzHeader.scss'
 
 const DJXZHeader = () => {
     const searchTabs = [
-        { 'name': '动作游戏', 'type': 'A' },
-        { 'name': '动作游戏', 'type': 'A' },
-        { 'name': '动作游戏', 'type': 'A' },
-        { 'name': '动作游戏', 'type': 'A' },
-        { 'name': '动作游戏', 'type': 'A' },
-        { 'name': '动作游戏', 'type': 'A' },
-        { 'name': '动作游戏', 'type': 'A' },
-        { 'name': '动作游戏', 'type': 'A' }
+        { title:'角色扮演', type:'C' },
+        { title:'即时战略', type:'I' },
+        { title:'体育竞技', type:'Q' },
+        { title:'休闲益智', type:'L' },
+        { title:'射击游戏', type:'B' },
+        { title:'动作游戏', type:'A' },
+        { title:'赛车竞速', type:'G' },
+        { title:'动作冒险', type:'D' }
     ]
 
     return (
@@ -36,7 +36,7 @@ const DJXZHeader = () => {
                     <input type="text" placeholder='搜索您想要的游戏 如 侠盗飞车 或 仙剑奇侠传' />
                     <ul>
                         {searchTabs.map((item, index) => {
-                            return <li key={index}><a href='#'>{item.name}</a></li>
+                            return <li key={index}><a href='#'>{item.title}</a></li>
                         })}
                     </ul>
                 </div>
