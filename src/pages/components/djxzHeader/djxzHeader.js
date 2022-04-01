@@ -1,15 +1,20 @@
 import './djxzHeader.scss'
+import { gameTypesList } from '../../common/common'
+import { useState } from 'react'
 
 const DJXZHeader = () => {
+
+    const [isGameType, setGameType] = useState(true)    
+
     const searchTabs = [
-        { title:'角色扮演', type:'C' },
-        { title:'即时战略', type:'I' },
-        { title:'体育竞技', type:'Q' },
-        { title:'休闲益智', type:'L' },
-        { title:'射击游戏', type:'B' },
-        { title:'动作游戏', type:'A' },
-        { title:'赛车竞速', type:'G' },
-        { title:'动作冒险', type:'D' }
+        { title: '角色扮演', type: 'C' },
+        { title: '即时战略', type: 'I' },
+        { title: '体育竞技', type: 'Q' },
+        { title: '休闲益智', type: 'L' },
+        { title: '射击游戏', type: 'B' },
+        { title: '动作游戏', type: 'A' },
+        { title: '赛车竞速', type: 'G' },
+        { title: '动作冒险', type: 'D' }
     ]
 
     return (
@@ -25,7 +30,7 @@ const DJXZHeader = () => {
                     </ul>
                 </div>
             </header>
-            
+
             {/* logo、搜索框 */}
             <div className="middle">
                 <div className='logoTitle'>
@@ -41,7 +46,7 @@ const DJXZHeader = () => {
                     </ul>
                 </div>
             </div>
-            
+
             {/* 首页 游戏库 热门文章 */}
             <div className="nav">
                 <ul>
@@ -52,8 +57,19 @@ const DJXZHeader = () => {
             </div>
 
             {/* 游戏分类 */}
-            <div className="gameType">
-                <span>游戏分类</span>
+            <div className="game_type">
+                <div className="game_type_child">
+                    <p onClick={() => { setGameType(!isGameType) }}>游戏分类</p>
+                    <div
+                        style={{ display: !isGameType ? 'none' : 'block' }}
+                        className="game_type_child_list">
+                        <ul>
+                            {gameTypesList.map((item, index) => {
+                                return <li key={item.type}><a href='#'>{item.title}</a></li>
+                            })}
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     )

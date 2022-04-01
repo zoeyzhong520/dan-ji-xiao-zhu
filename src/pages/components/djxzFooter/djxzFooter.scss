@@ -9,22 +9,27 @@
         display: flex;
         height: 30px;
         
-        ul li {
-            float: left;
-            margin-right: 120px;
+        ul {
+            display: flex;
+            flex: 1;
 
-            a {
-                font-size: 20px;
-                font-weight: 500;
-                color: #333;
+            li {
+                float: left;
+                margin-right: 120px;
+    
+                a {
+                    font-size: 20px;
+                    font-weight: 500;
+                    color: #333;
+                }
+    
+                a:hover {
+                    color: pink;
+                }
             }
-
-            a:hover {
-                color: pink;
+            li:first-child {
+                margin-right: 160px;
             }
-        }
-        ul li:first-child {
-            margin-right: 160px;
         }
     }
 

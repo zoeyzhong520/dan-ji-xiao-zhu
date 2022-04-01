@@ -80,7 +80,7 @@
             }
         }
         .search::after {
-            content: 'icon';
+            content: '🔍';
             position: absolute;
             right: 14px;
             top: 45px;
@@ -111,26 +111,56 @@
         }
     }
 
-    .gameType {
+    .game_type {
         position: absolute;
         left: 120px;
-        bottom: 0;
-        display: flex;
-        align-items: center;
-        padding: 0 20px;
-        width: 224px;
-        height: 40px;
-        cursor: pointer;
+        top: 150px;
+        width: 224px;        
         background: rgb(19, 52, 54);
+        cursor: pointer;
 
-        span {
-            font-weight: 500;
-            color: #fff;
-        }
-        span::after {
-            content: 'icon';
-            position: absolute;
-            right: 20px;
+        .game_type_child {
+            position: relative;
+            display: flex;            
+            flex-direction: column;
+
+            p {
+                position: relative;
+                padding: 0 20px;
+                height: 36px;
+                line-height: 36px;
+                text-align: left;
+                color: #fff;
+                user-select: none;
+            }
+            p::after {
+                content: '🏷️';
+                position: absolute;
+                right: 20px;
+            }
+    
+            .game_type_child_list {
+                ul li {
+                    padding: 0 27px;
+                    height: 26.4px;
+                    line-height: 26.4px;
+                    text-align: left;
+                    border-top: 1px solid rgb(49, 77, 78);
+
+                    a {
+                        color: #fff;
+                        font-size: 14px;
+                    }
+                    a::after {
+                        content: '➡️';
+                        position: absolute;
+                        right: 20px;
+                    }
+                }
+                ul li:hover {
+                    background: rgb(8, 29, 30);
+                }
+            }
         }
     }
 }
