@@ -1,8 +1,10 @@
+@import '../../common/common.scss';
+
 .djxzFooter_page {
     position: relative;
     height: 135px;
     padding: 15px 0;
-    border-top: 2px solid pink;
+    border-top: 1px solid $primaryColor;
 
     .t {
         padding-left: 200px;
@@ -18,13 +20,13 @@
                 margin-right: 120px;
     
                 a {
-                    font-size: 20px;
+                    font-size: $titleFontSize;
                     font-weight: 500;
                     color: #333;
                 }
     
                 a:hover {
-                    color: pink;
+                    color: $primaryColor;
                 }
             }
             li:first-child {
@@ -35,11 +37,12 @@
 
     .b {
         position: absolute;
-        bottom: 0;
+        bottom: 10px;
         width: 100%;
 
         p {
-            font-size: 16px;
+            font-size: $contentFontSize;
+            color: #666;
         }
     }
 
@@ -49,8 +52,8 @@
         a {
             float: left;
             margin-left: 200px;
-            font-size: 20px;
-            color: #333;
+            font-size: $titleFontSize;
+            color: #666;
         }
     }
 }
