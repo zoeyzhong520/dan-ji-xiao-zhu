@@ -1,0 +1,25 @@
+@import '../common/common.scss';
+
+.gameLibrary_page {
+    .main {
+        padding: 0 120px;
+
+        .location {
+            display: flex;
+        }
+
+        .b {
+            .section {
+                display: flex;
+                border-bottom: 1px solid $borderColor;
+
+                .l {
+                    font-size: $titleFontSize;
+                    font-weight: bold;
+                    color: $darkGreenColor;
+                    border-bottom: 1px solid $primaryColor;
+                }
+            }
+        }
+    }
+}

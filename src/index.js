@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Bmob from 'hydrogen-js-sdk'
+
+Bmob.initialize('df3cba52942cb8b9', 'kn03PK') // 初始化Bmob
+Bmob.debug(true) // 调试模式
+React.$bmob = Bmob // 将Bmob挂载到原型中
 
 ReactDOM.render(
   <React.StrictMode>

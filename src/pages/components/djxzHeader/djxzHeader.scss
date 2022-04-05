@@ -183,8 +183,8 @@
                 color: $primaryColor;
             }
         }
-
-        ul li:first-child a {
+        
+        .nav_select {
             color: $primaryColor;
         }
     }
@@ -280,14 +280,14 @@
                     text-align: left;
                     border: 0;
 
-                    a {
+                    span {
                         padding-left: 40px;
                         display: block;
                         font-size: $contentFontSizeSmall;
                         color: #333;
                         font-weight: 400;
                     }
-                    a:hover {
+                    span:hover {
                         color: $darkGreenColorHover;
                         background: #fff;
                     } 

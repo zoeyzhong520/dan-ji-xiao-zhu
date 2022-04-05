@@ -46,7 +46,7 @@
                 display: flex;
                 align-items: center;
                 height: 55px;
-                border-bottom: 1px solid rgb(231, 231, 231);
+                border-bottom: 1px solid $borderColor;
 
                 .l {
                     display: flex;
@@ -80,7 +80,7 @@
                 cursor: pointer;
 
                 ul {
-                    animation: move 200s linear infinite;
+                    animation: move 150s linear infinite;
                     transition: all 1s;
                 }
                 ul:hover {
@@ -94,7 +94,7 @@
                     img {
                         width: 360px;
                         height: 225px;
-                        object-fit: cover;
+                        object-fit: contain;
                         background: #ebebeb;
                     }
 
@@ -161,7 +161,8 @@
                     img {
                         width: 450px;
                         height: 210px;
-                        object-fit: cover;
+                        object-fit: contain;
+                        background: #ebebeb;
                         border-radius: $borderRadius;
                     }
 
@@ -282,7 +283,6 @@
                     align-items: center;
                     justify-content: center;
                     flex: 1;
-                    cursor: pointer;
 
                     div {
                         display: flex;
@@ -293,6 +293,7 @@
                         border-radius: 4px;
                         font-size: $titleFontSize;
                         background: rgb(248, 206, 97);
+                        cursor: pointer;
                     }
                     div:hover {
                         color: rgb(93, 200, 176);
