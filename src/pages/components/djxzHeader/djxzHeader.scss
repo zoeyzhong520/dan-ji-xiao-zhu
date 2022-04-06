@@ -27,7 +27,7 @@
             img {
                 margin-top: 8px;
                 width: 80px;
-                height: 80px;           
+                height: 80px;
                 object-fit: contain;
             }
 
@@ -47,11 +47,13 @@
             }
         }
     }
+
     @keyframes onShow {
         0% {
             opacity: 0;
             height: 0;
         }
+
         100% {
             opacity: 1;
             height: 115px;
@@ -66,12 +68,13 @@
         height: 35px;
         background: rgb(40, 44, 52);
 
-        a {            
+        a {
             position: relative;
             font-size: $contentFontSizeSmall;
             color: rgb(200, 200, 200);
             line-height: 35px;
         }
+
         a:hover {
             color: #fff;
         }
@@ -80,9 +83,11 @@
             display: block;
             animation: onShow .3s forwards;
         }
+
         .r ul li:first-child:hover .qrCode .contain {
             animation: onShow .6s forwards;
         }
+
         .r {
             position: absolute;
             right: 120px;
@@ -93,12 +98,14 @@
                 float: left;
                 padding-right: 15px;
             }
+
             ul li::after {
                 content: '|';
                 line-height: 100%;
                 margin-left: 15px;
                 color: rgb(89, 89, 89);
             }
+
             ul li:last-child::after {
                 content: '';
             }
@@ -107,7 +114,7 @@
 
     .middle {
         display: flex;
-        padding: 0 120px 10px; 
+        padding: 0 120px 10px;
         background: #fff;
 
         .logoTitle {
@@ -153,6 +160,7 @@
                 }
             }
         }
+
         .search::after {
             content: '';
             position: absolute;
@@ -183,7 +191,7 @@
                 color: $primaryColor;
             }
         }
-        
+
         .nav_select {
             color: $primaryColor;
         }
@@ -193,14 +201,14 @@
         position: absolute;
         left: 120px;
         top: 150px;
-        width: 224px;        
+        width: 224px;
         background: rgb(19, 52, 54);
         cursor: pointer;
         z-index: 1;
 
         .game_type_child {
             position: relative;
-            display: flex;            
+            display: flex;
             flex-direction: column;
 
             p {
@@ -213,6 +221,7 @@
                 font-weight: bold;
                 user-select: none;
             }
+
             p::after {
                 content: '';
                 position: absolute;
@@ -224,7 +233,7 @@
                 background: url('./static/Unordered_list.png') no-repeat;
                 background-size: contain;
             }
-    
+
             .game_type_child_list {
                 ul li {
                     height: 50px;
@@ -241,6 +250,7 @@
                         font-size: $contentFontSizeMedium;
                     }
                 }
+
                 ul li:last-child a::after {
                     content: '';
                     position: absolute;
@@ -252,58 +262,66 @@
                     background: url('../../common/static/Arrow-Signle-Right.png') no-repeat;
                     background-size: contain;
                 }
+
+                ul li:last-child:hover .more {
+                    display: block;
+                    animation: onShowMore .4s forwards;
+                }
+
                 ul li:hover {
                     background: $darkGreenColorHover;
-                } 
-                ul li:last-child a:hover .more {
-                    display: block;
-                    animation: onShowMore .6s forwards;
-                }
-            }
-
-            .more {
-                position: absolute;
-                left: 100%;
-                bottom: 0;
-                display: none;
-                width: 250px;
-                height: 520px;
-                border: 1px solid $darkGreenColorHover;
-                border-left: 0;
-                background: #fff;
-                opacity: 0;
-                transition: all 1s;
-
-                ul li {                    
-                    height: 50px;
-                    line-height: 50px;
-                    text-align: left;
-                    border: 0;
-
-                    span {
-                        padding-left: 40px;
-                        display: block;
-                        font-size: $contentFontSizeSmall;
-                        color: #333;
-                        font-weight: 400;
-                    }
-                    span:hover {
-                        color: $darkGreenColorHover;
-                        background: #fff;
-                    } 
-                }
-                ul li:first-child {
-                    margin-top: 20px;
                 }
 
-                @keyframes onShowMore {
-                    0% {
-                        opacity: 0;
-                        width: 0;
-                    }
-                    100% {
-                        opacity: 1;
+                ul {
+                    .more {
+                        position: absolute;
+                        left: 224px;
+                        top: 36px;
+                        display: none;
                         width: 250px;
+                        height: 518px;
+                        border: 1px solid $darkGreenColorHover;
+                        border-left: 0;
+                        background: #fff;
+                        opacity: 0;
+                        transition: all 1s;
+                        z-index: 1;
+
+                        ul li {
+                            height: 50px;
+                            line-height: 50px;
+                            text-align: left;
+                            border: 0;
+
+                            a {
+                                padding-left: 40px;
+                                display: block;
+                                font-size: $contentFontSizeSmall;
+                                color: #333;
+                                font-weight: 400;
+                            }
+
+                            a:hover {
+                                color: $darkGreenColorHover;
+                                background: #fff;
+                            }
+                        }
+
+                        ul li:first-child {
+                            margin-top: 20px;
+                        }
+
+                        @keyframes onShowMore {
+                            0% {
+                                opacity: 0;
+                                width: 0;
+                            }
+
+                            100% {
+                                opacity: 1;
+                                width: 250px;
+                            }
+                        }
                     }
                 }
             }

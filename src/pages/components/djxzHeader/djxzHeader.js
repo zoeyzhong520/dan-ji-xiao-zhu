@@ -20,7 +20,7 @@ const DJXZHeader = (params) => {
         // 数组尾部追加一个 更多
         let list = gameTypesList.slice(1, 10)
         list.push({
-            title: '更多类型', type: ''
+            title: '更多类型', type: 'MORE'
         })
         setTypesList(list)
     }, [])
@@ -73,7 +73,7 @@ const DJXZHeader = (params) => {
                     {navTitles.map((item, index) => {
                         return <li key={item.title}>
                             <NavLink to={item.path} className={params.navTitle === item.title ? 'nav_select' : ''}
-                            target={item.title === '首页' ? '' : '_blank'}>{item.title}</NavLink>
+                                target={params.navTitle === item.title ? '' : '_blank'}>{item.title}</NavLink>
                         </li>
                     })}
                 </ul>
@@ -83,26 +83,27 @@ const DJXZHeader = (params) => {
             <div className="game_type">
                 <div className="game_type_child">
                     <p onClick={() => { setGameType(!isGameType) }}>全部游戏分类</p>
-                    <div
-                        style={{ display: !isGameType ? 'none' : 'block' }}
-                        className="game_type_child_list">
+                    <div className="game_type_child_list"
+                        style={{ display: !isGameType ? 'none' : 'block' }}>
                         <ul>
                             {typesList.map((item, index) => {
                                 return <li key={item.type}>
-                                    <a href='#'>
+                                    <NavLink to={item.type !== 'MORE' ? `/gameLibrary?type=${item.type}` : '/gameLibrary'}
+                                        target={item.type !== 'MORE' ? '_blank' : ''}>
                                         {item.title}
+                                    </NavLink>
 
-                                        {/* 更多游戏类型 */}
-                                        <div className="more">
-                                            <ul>
-                                                {gameTypesList.slice(11, 19).map((itm, idx) => {
-                                                    return <li key={itm.title}>
-                                                        <span>{itm.title}</span>
-                                                    </li>
-                                                })}
-                                            </ul>
-                                        </div>
-                                    </a>
+                                    {/* 更多游戏类型 */}
+                                    <div className="more">
+                                        <ul>
+                                            {gameTypesList.slice(11, 19).map((itm, idx) => {
+                                                return <li key={itm.title}>
+                                                    <NavLink to={`/gameLibrary?type=${itm.type}`}
+                                                        target="_blank">{itm.title}</NavLink>
+                                                </li>
+                                            })}
+                                        </ul>
+                                    </div>
                                 </li>
                             })}
                         </ul>

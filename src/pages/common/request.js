@@ -54,25 +54,27 @@ export const djxzBanner = function () {
 
 /**
  * @description 获取全部数据
- * @param {Number} page 
- * @param {Boolean} updatedAt
- * @param {Boolean} readCount 
+ * @param {Number} page 页数
+ * @param {Boolean} updatedAt 创建时间
+ * @param {Boolean} readCount 阅读数量
+ * @param {String} title 标题
+ * @param {Number} limit 每页数据条数
  */
-export const djxzAllGames = function (page, updatedAt, readCount) {
+export const djxzAllGames = function (page, updatedAt, readCount, title, limit) {
     return new Promise((resolve, reject) => {
 
         const query = React.$bmob.Query('CGP_HotRecommend')
-        if (updatedAt && readCount) {
-            query.order('-createdAt', '-readCount')
-        }
-        if (updatedAt && !readCount) {
+        if (updatedAt) {
             query.order('-createdAt')
         }
-        if (!updatedAt && readCount) {
+        if (readCount) {
             query.order('-readCount')
         }
-        query.limit(40)
-        query.skip(page * 40)
+        if (title) {
+            query.order('title')
+        }
+        query.limit(limit ? limit : 40)
+        query.skip(page * (limit ? limit : 40))
         query.find().then(res => {
             // console.log(res)
             resolve(res)
@@ -104,24 +106,43 @@ export const djxzQueryWithID = function (objectId, tableName) {
 /**
  * 根据 tabs 标签查询数据
  * @param  {String} type 类型
- * @param {Boolean} updatedAt
- * @param {Boolean} readCount
- * @return {Array}  查询的结果
+ * @param {Number} page 页数
+ * @param {Boolean} updatedAt 创建时间
+ * @param {Boolean} readCount 阅读数量
+ * @param {String} title 标题
+ * @param {Number} limit 每页数据条数
  */
-export const djxcQueryGames = function (type, page, updatedAt, readCount) {
+export const djxcQueryGames = function (type, page, updatedAt, readCount, title, limit) {
     return new Promise((resolve, reject) => {
 
         const query = React.$bmob.Query('CGP_HotRecommend')
         query.equalTo("type", "==", type)
-        if (updatedAt && readCount) {
-            query.order('-createdAt', '-readCount')
-        }
-        if (updatedAt && !readCount) {
+        if (updatedAt) {
             query.order('-createdAt')
         }
-        if (!updatedAt && readCount) {
+        if (readCount) {
             query.order('-readCount')
         }
+        if (title) {
+            query.order('title')
+        }
+        query.limit(limit ? limit : 40)
+        query.skip(page * (limit ? limit : 40))
+        query.find().then(res => {
+            // console.log(res)
+            resolve(res)
+        });
+
+    })
+}
+
+// 热门文章列表数据
+export const djxzAllArticles = function (page) {
+    return new Promise((resolve, reject) => {
+
+        const query = React.$bmob.Query('CGP_PopularArticles')
+        // 对createdAt字段降序排列
+        query.order("-createdAt")
         query.limit(40)
         query.skip(page * 40)
         query.find().then(res => {
@@ -132,19 +153,22 @@ export const djxcQueryGames = function (type, page, updatedAt, readCount) {
     })
 }
 
-// 热门文章列表数据
-export const djxzAllArticles = function(page) {
-	return new Promise((resolve, reject) => {
+/**
+ * @description 统计游戏记录数量
+ * @param  {String} type 类型
+ */
+export const djxzQueryGamesCount = function (type) {
+    return new Promise((resolve, reject) => {
 
-		const query = React.$bmob.Query('CGP_PopularArticles')
-		// 对createdAt字段降序排列
-		query.order("-createdAt")
-		query.limit(40)
-		query.skip(page*40)
-		query.find().then(res => {
-			// console.log(res)
-			resolve(res)
-		});
+        const query = React.$bmob.Query('CGP_HotRecommend');
+        if (type) {
+            query.equalTo("type", "==", type)
+        }
+        query.count().then(res => {
+            console.log(`共有${res}条记录`)
+            resolve(res)
+        });
 
-	})
+    })
 }
+

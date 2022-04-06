@@ -1,9 +1,8 @@
 import './home.scss'
 import DJXZHeader from '../components/djxzHeader/djxzHeader'
 import DJXZFooter from '../components/djxzFooter/djxzFooter'
-import { useDangerouslySetInnerHTML } from '../common/common'
 import { useEffect, useState } from 'react'
-import { djxzBanner, djxzAllGames, djxzAllArticles } from '../common/request'
+import { djxzAllGames, djxzAllArticles } from '../common/request'
 
 const Home = () => {
     // 热评资讯动画显示状态

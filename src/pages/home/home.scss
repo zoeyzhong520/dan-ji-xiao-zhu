@@ -80,7 +80,7 @@
                 cursor: pointer;
 
                 ul {
-                    animation: move 150s linear infinite;
+                    animation: move 500s linear infinite;
                     transition: all 1s;
                 }
                 ul:hover {
@@ -94,13 +94,14 @@
                     img {
                         width: 360px;
                         height: 225px;
-                        object-fit: contain;
+                        object-fit: cover;
                         background: #ebebeb;
                     }
 
                     p {
                         margin-top: 25px;
                         width: 360px;
+                        height: 55px;
                         font-size: $titleFontSize;
                         color: rgb(18, 51, 53);
                         text-align: left;
@@ -161,8 +162,8 @@
                     img {
                         width: 450px;
                         height: 210px;
-                        object-fit: contain;
-                        background: #ebebeb;
+                        object-fit: cover;
+                        background: $backGrayColor;
                         border-radius: $borderRadius;
                     }
 
