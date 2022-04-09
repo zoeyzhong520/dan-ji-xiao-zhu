@@ -30,7 +30,7 @@ const GameLibrary = () => {
         updatedAt: false,
         readCount: false,
         title: true,
-        limit: 39
+        limit: 24
     })
 
     const [filterBarTitles, setFilterBarTitles] = useState([
@@ -60,6 +60,7 @@ const GameLibrary = () => {
         setFilterBarTitles(tmpFilterBarTitles)
 
         // 更新filterDict
+        filterDict.page = 0
         filterDict.updatedAt = filterBarTitles[idx].type === 'updatedAt'
         filterDict.readCount = filterBarTitles[idx].type === 'readCount'
         filterDict.title = filterBarTitles[idx].type === 'title'
@@ -72,17 +73,17 @@ const GameLibrary = () => {
         if (filterDict.page === 0) {
             return
         }
-        filterDict.page > 0 ? filterDict.page = filterDict.page-1 : filterDict.page = 0
+        filterDict.page > 0 ? filterDict.page = filterDict.page - 1 : filterDict.page = 0
         setFilterDict(filterDict)
         http()
     }
 
     // 下一页
     const next = () => {
-        if (filterDict.page+1 >= Math.ceil(gamesCount/39)) {
+        if (filterDict.page + 1 >= Math.ceil(gamesCount / filterDict.limit)) {
             return
         }
-        filterDict.page = filterDict.page+1
+        filterDict.page = filterDict.page + 1
         setFilterDict(filterDict)
         http()
     }
@@ -168,7 +169,7 @@ const GameLibrary = () => {
                             {/* 页码 */}
                             <div className="filter_bar_right">
                                 <button className="previous" onClick={() => previous()}>{'<'}</button>
-                                <p>{`${filterDict.page+1} / ${Math.ceil(gamesCount/39)}`}</p>
+                                <p>{`${filterDict.page + 1} / ${Math.ceil(gamesCount / filterDict.limit)}`}</p>
                                 <button className="next" onClick={() => next()}>{'>'}</button>
                             </div>
                         </div>
@@ -178,8 +179,10 @@ const GameLibrary = () => {
                             <ul>
                                 {data.map((item, index) => {
                                     return <li key={item.title}>
-                                        <img src={item.image} alt="" />
-                                        <p>{item.title}</p>
+                                        <NavLink to={`/gameDetail?id=${item.objectId}`} target="_blank">
+                                            <img src={item.image} alt="" />
+                                            <p>{item.title}</p>
+                                        </NavLink>
                                     </li>
                                 })}
                             </ul>

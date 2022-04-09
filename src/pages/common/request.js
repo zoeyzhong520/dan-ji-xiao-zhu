@@ -92,7 +92,7 @@ tableName 数据表名，默认为 CGP_HotRecommend
 */
 export const djxzQueryWithID = function (objectId, tableName) {
     return new Promise((resolve, reject) => {
-        const query = React.$bmob.Query(!!tableName ? tableName : 'CGP_HotRecommend')
+        const query = React.$bmob.Query(tableName ? tableName : 'CGP_HotRecommend')
         query.get(objectId).then(res => {
             // console.log(res)
             resolve(res)
@@ -170,5 +170,27 @@ export const djxzQueryGamesCount = function (type) {
         });
 
     })
+}
+
+// 通过主键修改一行记录
+// objectId 主键
+export const djxzAddReadCount = function(objectId) {
+	return new Promise((resolve, reject) => {
+
+		const query = React.$bmob.Query('CGP_HotRecommend');
+		query.get(objectId).then(res => {	
+			// 每次打开游戏详情页，给readCount增加1
+			res.set('readCount', (!!!res.readCount ? 0 : res.readCount)+1)
+			res.save().then(res => {
+				// console.log(res)
+				resolve(res)
+			}).catch(err => {
+				reject(err)
+			})
+		}).catch(err => {
+			reject(err)
+		})
+
+	})
 }
 

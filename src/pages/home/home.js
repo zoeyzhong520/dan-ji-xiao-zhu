@@ -3,6 +3,7 @@ import DJXZHeader from '../components/djxzHeader/djxzHeader'
 import DJXZFooter from '../components/djxzFooter/djxzFooter'
 import { useEffect, useState } from 'react'
 import { djxzAllGames, djxzAllArticles } from '../common/request'
+import { NavLink } from 'react-router-dom'
 
 const Home = () => {
     // 热评资讯动画显示状态
@@ -73,15 +74,17 @@ const Home = () => {
                                     <img src={require(`${item.icon}`)} alt="" />
                                     <p>{item.title}</p>
                                 </div>
-                                <a href='#'>更多{'>>'}</a>
+                                <NavLink to="/gameLibrary" target="_blank">更多{'>>'}</NavLink>
                             </div>
 
                             <div className="recommend_main">
-                                <ul style={{ width: data[item.key].length * 390 }}>
+                                <ul style={{ width: `${data[item.key].length * 1200}px` }}>
                                     {data[item.key].map((itm, idx) => {
                                         return <li key={itm.title}>
-                                            <img src={itm.image} alt="" />
-                                            <p>{itm.title}</p>
+                                            <NavLink to={`/gameDetail?id=${itm.objectId}`} target="_blank">
+                                                <img src={itm.image} alt="" />
+                                                <p>{itm.title}</p>
+                                            </NavLink>
                                         </li>
                                     })}
                                 </ul>

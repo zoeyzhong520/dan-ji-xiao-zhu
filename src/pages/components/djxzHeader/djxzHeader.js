@@ -11,7 +11,7 @@ const DJXZHeader = (params) => {
     const navTitles = [
         { title: '首页', path: '/' },
         { title: '游戏库', path: '/gameLibrary' },
-        { title: '热门文章', path: '' }
+        { title: '热门文章', path: '/' }
     ]
 
     const [isGameType, setGameType] = useState(params.navTitle === '首页')
