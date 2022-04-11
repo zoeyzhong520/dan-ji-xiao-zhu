@@ -141,7 +141,7 @@ const GameLibrary = () => {
                 <div className="main_right">
                     {/* 面包屑 */}
                     <div className="location">当前位置：
-                        <NavLink to="/">首页{'>'}</NavLink>
+                        <NavLink to="/">首页{' > '}</NavLink>
                         <NavLink to="/gameLibrary">游戏库</NavLink>
                     </div>
 

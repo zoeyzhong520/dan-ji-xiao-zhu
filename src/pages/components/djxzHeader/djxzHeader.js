@@ -2,7 +2,9 @@ import './djxzHeader.scss'
 import { gameTypesList } from '../../common/common'
 import { useEffect, useState } from 'react'
 import { useNavigate, NavLink } from 'react-router-dom'
+import { djxzAllGamesTitleID, fuzzyQuery } from '../../common/request'
 
+let isOnComposition = false
 const DJXZHeader = (params) => {
 
     const navigate = useNavigate()
@@ -11,7 +13,7 @@ const DJXZHeader = (params) => {
     const navTitles = [
         { title: '首页', path: '/' },
         { title: '游戏库', path: '/gameLibrary' },
-        { title: '热门文章', path: '/' }
+        { title: '热评资讯', path: '/buzzInformation' }
     ]
 
     const [isGameType, setGameType] = useState(params.navTitle === '首页')
@@ -23,7 +25,44 @@ const DJXZHeader = (params) => {
             title: '更多类型', type: 'MORE'
         })
         setTypesList(list)
+
+        const http = () => {
+            djxzAllGamesTitleID().then(res => {
+
+            })
+        }
+        http()
     }, [])
+
+    const [searchRes, setSearchRes] = useState([{}])
+
+    // 监听搜索框文本输入
+    const inputChange = (e) => {
+        let keyWord = e.target.value
+
+        if (keyWord.length === 0 || isOnComposition) {
+            setSearchRes([{}])
+            return
+        }
+
+        let tmpSearchRes = [...searchRes]
+        tmpSearchRes = fuzzyQuery(keyWord)
+        setSearchRes(tmpSearchRes)
+    }
+
+    const handleComposition = (e) => {
+        console.log(e.type);
+
+        if (e.type === 'compositionend') {
+            isOnComposition = false
+            if (!isOnComposition) {
+                inputChange(e)
+            }
+        } else {
+            isOnComposition = true
+        }
+    }
+
 
     return (
         <div className='djxzHeader_page'>
@@ -58,10 +97,36 @@ const DJXZHeader = (params) => {
                     <img src={require('./static/logo_pc.png')} alt="logo" />
                 </div>
                 <div className='search'>
-                    <input type="text" placeholder='搜索您想要的游戏 如 侠盗飞车 或 仙剑奇侠传' />
+                    <input
+                        type="text" name="search"
+                        placeholder='搜索您想要的游戏 如 侠盗飞车 或 仙剑奇侠传'
+                        autoComplete="off"
+                        onChange={(e) => { inputChange(e) }}
+                        onCompositionStart={(e) => handleComposition(e)}
+                        onCompositionUpdate={(e) => handleComposition(e)}
+                        onCompositionEnd={(e) => handleComposition(e)} />
                     <ul>
                         {gameTypesList.slice(3, 11).map((item, index) => {
-                            return <li key={item.title}><a href='#'>{item.title}</a></li>
+                            return <li key={item.title}>
+                                <NavLink to={`/gameLibrary?type=${item.type}`}
+                                    target="_blank">{item.title}
+                                </NavLink>
+                            </li>
+                        })}
+                    </ul>
+                </div>
+
+                {/* 搜索结果 */}
+                <div
+                    className="search_result"
+                    style={{ display: searchRes.length > 0 ? 'block' : 'none' }}>
+                    <ul>
+                        {searchRes.map((item, index) => {
+                            return <li key={index}>
+                                <NavLink
+                                    to={`/gameDetail?id=${item.objectId}`}
+                                    target="_blank">{item.title}
+                                </NavLink></li>
                         })}
                     </ul>
                 </div>

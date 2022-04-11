@@ -113,6 +113,7 @@
     }
 
     .middle {
+        position: relative;
         display: flex;
         padding: 0 120px 10px;
         background: #fff;
@@ -160,7 +161,6 @@
                 }
             }
         }
-
         .search::after {
             content: '';
             position: absolute;
@@ -170,6 +170,33 @@
             height: 18px;
             background: url('./static//Magnifier.png') no-repeat;
             background-size: contain;
+        }
+
+        .search_result {
+            position: absolute;
+            top: 78px;
+            left: 550px;
+            max-height: 400px;
+            overflow-y: scroll;
+            background: $backWhiteColor;
+            box-shadow: 0 0 8px $borderColor;
+            border-radius: $borderRadius;
+            z-index: 1;
+
+            ul li {
+                padding: 0 10px;
+                text-align: left;
+
+                a {
+                    line-height: 40px;
+                    font-size: $contentFontSizeMedium;
+                    color: $colorBlack;
+                }
+            }
+            ul li:hover {
+                background: $backGrayColor;
+                font-style: oblique;
+            }
         }
     }
 

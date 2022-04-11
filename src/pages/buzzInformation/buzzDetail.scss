@@ -1,0 +1,294 @@
+@import '../common/common.scss';
+
+.buzzDetail_page {
+    .main {
+        position: relative;
+        display: flex;
+
+        .main_top_bottom {
+            margin-left: 120px;
+            width: 960px;
+
+            .main_top {
+                padding-top: 15px;
+
+                .location {
+                    text-align: left;
+                    font-size: $contentFontSizeMedium;
+                    color: $colorGray;
+
+                    a {
+                        color: $colorGray;
+                    }
+                }
+
+                .imgTitle {
+                    margin-top: 50px;
+                    display: flex;
+                    align-items: center;
+
+                    .imgTitle_l {
+                        img {
+                            width: 360px;
+                            height: 165px;
+                            background: $backGrayColor;
+                            object-fit: cover;
+                        }
+                    }
+
+                    .imgTitle_r {
+                        margin-left: 90px;
+
+                        ul li {
+                            margin-bottom: 5px;
+                            min-height: 27.5px;
+
+                            .title_style {
+                                display: block;
+                                width: 510px;
+                                text-align: left;
+                                word-wrap: break-word;
+                                color: $darkGreenColor;
+                            }
+
+                            p {
+                                @extend .title_style;
+                            }
+
+                            a {
+                                @extend .title_style;
+                                color: $primaryColor;
+                            }
+                        }
+
+                        ul li:last-child {
+                            margin-bottom: 0;
+                        }
+
+                        ul li:first-child {
+                            margin-bottom: 15px;
+
+                            p {
+                                font-size: $titleFontSize;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .main_bottom {
+                display: flex;
+                flex-direction: column;
+                margin-top: 44px;
+
+                .main_bottom_section {
+                    height: 55px;
+                    border: 1px solid $borderColor;
+
+                    p {
+                        float: left;
+                        padding: 0 40px;
+                        text-align: left;
+                        line-height: 55px;
+                        font-size: $titleFontSize;
+                        color: $primaryColor;
+                        border-top: 4px solid $primaryColor;
+                        border-right: 1px solid $borderColor;
+                    }
+                }
+
+                .main_bottom_content {
+                    padding: 60px 0;
+
+                    .marginTop60 {
+                        margin-top: 60px;
+                    }
+
+                    .marginTop30 {
+                        margin-top: 30px;
+                    }
+
+                    .titleL {
+                        text-align: left;
+                        font-weight: bold;
+                        font-size: $titleFontSize;
+                        color: $darkGreenColor;
+                    }
+
+                    .descL {
+                        @extend .marginTop30;
+                        white-space: pre-wrap;
+                        text-align: left;
+                        line-height: 30px;
+                        color: $darkGreenColor;
+                    }
+
+                    .game_title {
+                        p {
+                            text-align: center;
+                            font-weight: 400;
+                            font-size: $titleFontSizeBig;
+                            color: $darkGreenColor;
+                        }
+                    }
+
+                    .game_video {
+                        @extend .marginTop60;
+
+                        video {
+                            @extend .marginTop30;
+                            width: 853px;
+                            height: 480px;
+                        }
+                    }
+
+                    .game_desc {
+                        @extend .marginTop60;
+
+                        p:last-child {
+                            @extend .descL;
+                        }
+                    }
+
+                    .game_requirements {
+                        @extend .marginTop60;
+
+                        p:last-child {
+                            @extend .descL;
+                        }
+                    }
+
+                    .game_imgs {
+                        @extend .marginTop60;
+
+                        div {
+                            @extend .marginTop30;
+                            display: flex;
+                            flex-direction: column;
+                            text-align: left;
+
+                            img {
+                                margin-top: 5px;
+                                width: 360px;
+                                height: 165px;
+                                background: $backGrayColor;
+                                object-fit: cover;
+                            }
+                        }
+                    }
+
+                    .buzz_content {
+                        @extend .marginTop60;
+
+                        p {
+                            @extend .descL;
+                        }
+
+                        img {
+                            width: 560px;
+                            height: 315px;
+                            background: $backGrayColor;
+                            object-fit: cover;
+                        }
+                    }
+                }
+            }
+        }
+
+        .main_right {
+            margin-left: 30px;
+            padding-bottom: 140px;
+            width: 210px;
+
+            .main_right_section {
+                height: 53px;
+                border-bottom: 1px solid $borderColor;
+
+                .l {
+                    float: left;
+
+                    p {
+                        width: 94px;
+                        color: $darkGreenColor;
+                        font-weight: bold;
+                        line-height: 53px;
+                        border-bottom: 1px solid $primaryColor;
+                    }
+                }
+
+                .r {
+                    float: right;
+
+                    a {
+                        color: $darkGreenColor;
+                        font-size: $contentFontSizeSmall;
+                        line-height: 53px;
+                    }
+                }
+            }
+
+            .main_right_list {
+                padding-top: 10px;
+
+                ul li {
+                    margin-left: 15px;
+                    width: 160px;
+
+                    a {
+                        img {
+                            width: 160px;
+                            height: 70px;
+                            object-fit: cover;
+                            background: $backGrayColor;
+                        }
+
+                        p {
+                            padding: 10px 0;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            color: $darkGreenColor;
+                            font-size: $contentFontSizeSmall;
+                        }
+                    }
+                }
+            }
+
+            .main_right_more {
+                width: 160px;
+                height: 30px;
+                transform: translateX(25px);
+                border: 1px solid $borderColor;
+                cursor: pointer;
+
+                p {
+                    color: $colorGray;
+                    font-size: $contentFontSizeMedium;
+                    line-height: 30px;
+                }
+
+                p:hover {
+                    color: $colorWhite;
+                    background: $primaryColor;
+                }
+                p:hover::after {
+                    border: 1px solid $colorWhite;
+                    border-top: 0;
+                    border-left: 0;
+                }
+
+                p::after {
+                    content: '';
+                    display: inline-block;
+                    margin-left: 8px;
+                    width: 8px;
+                    height: 8px;
+                    border: 1px solid $colorGray;
+                    border-top: 0;
+                    border-left: 0;
+                    transform: rotate(45deg) translateY(-4px);
+                }
+            }
+        }
+    }
+}

@@ -38,7 +38,7 @@ const Home = () => {
                 // 最新游戏
                 tmpData.latestGames = latestGames
             })
-            await djxzAllArticles().then(articles => {
+            await djxzAllArticles(0, true, false).then(articles => {
                 // 热评资讯
                 tmpData.articles = articles
             })
